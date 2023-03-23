@@ -1,0 +1,27 @@
+{
+    "manifests": {
+        "fleebjuice/bunny-cdn-media-storage": {
+            "manifest": {
+                "env": {
+                    "#1": "BUNNY_CDN_STORAGE_NAME=storage name",
+                    "#2": "BUNNY_CDN_STORAGE_API_KEY=storage key",
+                    "#3": "BUNNY_CDN_API_KEY=API key",
+                    "#4": "BUNNY_CDN_PULLZONE_ID=pullzone ID"
+                },
+                "post-install-output": [
+                    "* <fg=blue>Setup</> Bunny Plugin:",
+                    "  1. <href=https://panel.bunny.net/user/login/>Login to your bunny account</>",
+                    "  2. Get your apiKey from your <href=https://bunnycdn.com/account>Account</>",
+                    "  3. Get your pullzoneId from <href=https://bunnycdn.com/pullzones>pull zones</> detail page url which is looking like https://bunnycdn.com/pullzones/edit/<comment>{pullzoneId}</comment>",
+                    "  4. Get your storageName from <href=https://panel.bunny.net/storagezones>storage zones</>",
+                    "  5. Get your storageApiKey from <comment>password</comment> field in a storage zone in <comment>FTP & API Access</comment>. <fg=red>Note: Don't use the read-only-password",
+                    "* <fg=blue>Sync</> your stuff:",
+                    "  1. php bin/console fleeb:bunnycdn:assets:upload \"theme favicon.ico media thumbnail\"",
+                    "  2. set CDN_URL and/or ASSET_URL accordingly"
+                ]
+            },
+            "files": [],
+            "ref": "12268bd0ba002810489bcf0008d0da3fe80fa2cb"
+        }
+    }
+}

@@ -1,8 +1,0 @@
-{
-    "env": {
-        "#1": "BUNNY_CDN_STORAGE_NAME=storage name",
-        "#2": "BUNNY_CDN_STORAGE_API_KEY=storage key",
-        "#3": "BUNNY_CDN_API_KEY=API key",
-        "#4": "BUNNY_CDN_PULLZONE_ID=pullzone ID"
-    }
-}
