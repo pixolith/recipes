@@ -9,6 +9,7 @@
     },
     "gitignore": [
         "**/*.hot-update.js",
+        "**/*.hot-update.json",
         "custom/plugins/Pxsw*/src/Resources/app/storefront/dist/storefront/js/",
         "custom/plugins/Pxsw*/src/Resources/app/administration/src/scss/index.scss",
         "custom/plugins/Pxsw*/src/Resources/app/administration/src/index.js",
