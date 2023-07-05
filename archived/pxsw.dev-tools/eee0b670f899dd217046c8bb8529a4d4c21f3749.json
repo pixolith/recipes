@@ -1,0 +1,13 @@
+{
+    "manifests": {
+        "pxsw/dev-tools": {
+            "manifest": {
+                "copy-from-recipe": {
+                    "root/": ""
+                }
+            },
+            "files": [],
+            "ref": "eee0b670f899dd217046c8bb8529a4d4c21f3749"
+        }
+    }
+}

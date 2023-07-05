@@ -4,8 +4,12 @@
         "fleebjuice/bunny-cdn-media-storage": [
             "4.0"
         ],
+        "pxsw/dev-tools": [
+            "1.0"
+        ],
         "pxsw/project": [
-            "6.0"
+            "6.0",
+            "7.0"
         ]
     },
     "recipe-conflicts": [],
