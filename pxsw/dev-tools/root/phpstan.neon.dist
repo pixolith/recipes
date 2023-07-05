@@ -1,0 +1,19 @@
+parameters:
+    phpVersion: 80100
+    level: max
+    paths:
+        - custom/plugins
+        - custom/static-plugins
+    excludePaths:
+        - **/node_modules/**
+        - custom/apps/*
+        - custom/plugins/K10r*
+        - custom/plugins/Swag*
+        - custom/static-plugins/K10r*
+    reportUnmatchedIgnoredErrors: true
+    inferPrivatePropertyTypeFromConstructor: true
+    checkMissingIterableValueType: false
+    bootstrapFiles:
+        - %currentWorkingDirectory%/vendor/autoload.php
+rules:
+    - Spatie\Ray\PHPStan\RemainingRayCallRule
