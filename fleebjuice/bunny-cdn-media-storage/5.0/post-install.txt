@@ -1,0 +1,7 @@
+* <fg=blue>Setup</> Bunny Plugin:
+  1. <href=https://panel.bunny.net/user/login/>Login to your bunny account</>
+  2. Get your storageName from <href=https://panel.bunny.net/storagezones>storage zones</>
+  3. Get your storageApiKey from <comment>password</comment> field in a storage zone in <comment>FTP & API Access</comment>. <fg=red>Note: Don't use the read-only-password
+* <fg=blue>Sync</> your stuff:
+  1. php bin/console fleeb:bunnycdn:assets:upload "css js font favicon.ico media thumbnail"
+  2. set CDN_URL and/or ASSET_URL accordingly

@@ -1,0 +1,39 @@
+{
+    "copy-from-recipe": {
+        "config/": "%CONFIG_DIR%/",
+        "root/": ""
+    },
+    "env": {
+        "#1": "CDN_URL=https://your-project.b-cdn.net/",
+        "ASSET_URL": "/",
+        "#2": "Redis Configuration",
+        "#3": "REDIS_SESSION_URL=redis://ddev-shopware-redis:6379/0",
+        "#4": "REDIS_CACHE_URL=redis://ddev-shopware-redis:6379/1",
+        "#5": "REDIS_CART_URL=redis://ddev-shopware-redis:6379/2",
+        "#6": "for lock redis use default LOCK_DSN",
+        "#7": "Shopware Configuration",
+        "ENABLE_SERVICES": "false",
+        "#8": "Disable Commercial Features that are not used @see https://developer.shopware.com/docs/products/extensions/commercial/#disable-features",
+        "#9": "SHOPWARE_COMMERCIAL_ENABLED_BUNDLES=AdvancedSearch,WebhookFlowAction,FlowSharing,DelayedFlowAction",
+        "#10": "SHOPWARE_SKIP_CONNECTION_VARIABLES=1",
+        "SHOPWARE_CACHE_ID": "sw-cache"
+    },
+    "gitignore": [
+        "**/*.hot-update.js",
+        "**/*.hot-update.json",
+        "custom/*plugins/Pxsw*/src/Resources/app/storefront/dist/storefront/js/",
+        "custom/*plugins/Pxsw*/src/Resources/app/administration/src/scss/*.index.scss",
+        "custom/*plugins/Pxsw*/src/Resources/app/administration/src/px/**/*index.*",
+        "custom/*plugins/Pxsw*/src/Resources/views/administration/*",
+        "custom/*plugins/Pxsw*/src/Resources/app/shared/*/*.index.scss",
+        "custom/*plugins/Pxsw*/src/Resources/app/storefront/private/**/*.index.scss",
+        "custom/*plugins/Pxsw*/src/Resources/app/storefront/private/index.js",
+        "custom/*plugins/Pxsw*/src/Resources/public",
+        "custom/*plugins/*/src/Resources/app/administration/.tmp",
+        "/public/sprite/*",
+        "/public/fonts/*",
+        "/public/img/*",
+        "/public/css/*",
+        "/public/js/*"
+    ]
+}

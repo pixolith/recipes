@@ -1,0 +1,3 @@
+twig:
+    globals:
+        asset_url: '%env(ASSET_URL)%'

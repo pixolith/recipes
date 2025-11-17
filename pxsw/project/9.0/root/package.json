@@ -1,0 +1,53 @@
+{
+    "name": "shopware-shopware",
+    "description": "Shopware 6 Base setup with plugins",
+    "version": "6.7",
+    "author": "pixolith GmbH & Co KG",
+    "scripts": {
+        "clean": "rimraf -g 'custom/plugins/*/src/Resources/views/administration/**/*.twig' 'vendor/pxsw/*/src/Resources/views/administration/**/*.twig' 'public/js/*.*' 'public/css/*.*' 'var/px_plugins.json'",
+        "dev": "npm run sf:dev",
+        "sf:dev": "npm run clean && cross-env SHOPWARE_MODE=storefront NODE_ENV=development webpack-dev-server --hot",
+        "sf:build": "cross-env SHOPWARE_MODE=storefront NODE_ENV=production webpack",
+        "build": "npm run clean && concurrently \"npm run sf:build\" \"npm run admin:build\" \"npm run admin:build:sw\"",
+        "admin": "npm run admin:dev",
+        "admin:dev": "ddev exec bash bin/watch-administration.sh",
+        "admin:build": "cross-env SHOPWARE_MODE=administration NODE_ENV=production webpack",
+        "admin:build:sw": "command -v ddev >/dev/null 2>&1 && ddev exec bash bin/build-administration.sh || npm run admin:cibuild",
+        "admin:cibuild": "CI=1 SHOPWARE_SKIP_ENTITY_SCHEMA_DUMP=1 SHOPWARE_SKIP_ASSET_COPY=1 bash bin/build-administration.sh",
+        "cache:clear": "ddev exec php bin/console cache:clear && ddev exec php bin/console cache:pool:clear --all",
+        "theme:compile": "ddev exec php bin/console theme:compile",
+        "db:dump": "ddev export-db -f deployment/local/sw_shopware_dev.sql.gz",
+        "db:restore": "ddev import-db -f deployment/local/sw_shopware_dev.sql.gz",
+        "fix-style": "stylelint --fix 'custom/*plugins/Pxsw*/src/Resources/app/**/*.scss'",
+        "fix-js": "eslint --fix 'custom/*plugins/Pxsw*/src/Resources/app/**/*.js'",
+        "fix-php": "vendor/bin/php-cs-fixer fix",
+        "prettier": "npm run fix-style && npm run fix-js"
+    },
+    "browserslist": {
+        "storefront": [
+            ">= 0.5%",
+            "last 2 major versions",
+            "not dead"
+        ],
+        "administration": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "prettier": "@pixolith/prettier-config",
+    "eslintConfig": {
+        "extends": "@pixolith/eslint-config-sw6"
+    },
+    "stylelint": {
+        "extends": "@pixolith/stylelint-config-standard"
+    },
+    "percy": {
+        "version": 2
+    },
+    "devDependencies": {
+        "@pixolith/eslint-config-sw6": "11.0.0",
+        "@pixolith/stylelint-config-standard": "11.0.0",
+        "@pixolith/webpack-sw6-config": "11.0.7"
+    }
+}
