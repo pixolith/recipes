@@ -6,8 +6,7 @@ if (process.env.SHOPWARE_MODE === 'storefront') {
     // browserslist config in package.json
     process.env.BROWSERSLIST_ENV = 'storefront';
 
-    process.env.THEME_NAMES = 'PxswBasicTheme';
-
+    process.env.THEME_NAMES = 'PxswCustomerTheme';
     // activate mobile device splitting
     //process.env.MEDIA_QUERIES = JSON.stringify({
     //    '(min-width: 768px)': 'desktop',
@@ -18,12 +17,15 @@ if (process.env.SHOPWARE_MODE === 'storefront') {
 }
 
 if (process.env.SHOPWARE_MODE === 'administration') {
-    process.env.PUBLIC_PATH = './public/bundles';
+    process.env.PUBLIC_PATH = './public';
+
+    process.env.PX_ENTRY_PATH = 'src/Resources/app/administration/src/px';
+    process.env.SHARED_SCSS_PATH = '../../../shared';
 
     // browserslist config in package.json‚
     process.env.BROWSERSLIST_ENV = 'administration';
 
-    process.env.THEME_NAMES = 'PxswBasicTheme';
+    process.env.THEME_NAMES = 'PxswCustomerTheme';
 }
 
 if (
